@@ -148,5 +148,19 @@ class Grupo{
 }
 
 object coliseo{
+  const property grupos = #{}
 
+  method combateEntreGrupos(unGrupo, otroGrupo){
+    unGrupo.combatir(otroGrupo)
+  }
+
+  method combateDesigual(unGrupo,unGladiador){
+    const grupoSolitario = new Grupo(nombre = "solitario",gladiadores = #{unGladiador}) 
+    unGrupo.combatir(grupoSolitario)
+    grupos.add(grupoSolitario)
+  }
+
+  method curar(){
+    grupos.forEach({grupo => grupo.curar()})
+  }
 }
